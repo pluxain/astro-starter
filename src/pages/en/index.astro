@@ -1,17 +1,11 @@
 ---
+import * as m from "@messages/messages";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
+const pageTitle = m.index_title();
+const description = m.index_meta_description();
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="author" content="Pascal Luxain" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle} description={description}>
+  <h1>Astro</h1>
+</BaseLayout>
