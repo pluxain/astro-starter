@@ -1,0 +1,28 @@
+---
+type Props = {
+  description: string;
+  pageTitle: string;
+  robots?: string;
+};
+
+const { currentLocale, props } = Astro;
+const { description, pageTitle, robots = "index, follow" } = props;
+---
+
+<!doctype html>
+<html lang={currentLocale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Luxain Solutions, e.U." />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content={robots} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
