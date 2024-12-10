@@ -3,10 +3,13 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@components": ["src/components/"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@libs/*": ["src/libs/*"],
       "@messages/*": ["src/paraglide/*"]
     }
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
