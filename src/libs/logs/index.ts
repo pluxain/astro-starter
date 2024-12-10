@@ -1,6 +1,5 @@
 import pino from "pino";
-
-const { LOG_LEVEL = "trace" } = import.meta.env;
+import { LOG_LEVEL } from "astro:env/client";
 
 const targets = [];
 
