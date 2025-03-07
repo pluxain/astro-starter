@@ -1,7 +1,7 @@
+import paraglide from "@inlang/paraglide-astro";
+import tailwindcss from "@tailwindcss/vite";
 // @ts-check
 import { defineConfig, envField } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
-import paraglide from "@inlang/paraglide-astro";
 
 // https://astro.build/config
 export default defineConfig({

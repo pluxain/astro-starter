@@ -1,5 +1,5 @@
-import pino from "pino";
 import { LOG_LEVEL } from "astro:env/client";
+import pino from "pino";
 
 const targets = [];
 
