@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, envField } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import paraglide from "@inlang/paraglide-astro";
 
 // https://astro.build/config
@@ -30,7 +30,9 @@ export default defineConfig({
       project: "./project.inlang",
       outdir: "./src/paraglide",
     }),
-    tailwind(),
   ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   site: "https://website.com",
 });
