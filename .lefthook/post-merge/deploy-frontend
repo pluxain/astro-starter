@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+echo "Deploy script for frontend" 
+dist_client=./dist/client
+backup_client=./backup/client
+
+# create folder structure for backup
+mkdir -p $backup_client
+
+# save .htaccess for NodeJs application
+if [ -f $dist_client/.htaccess ]; then
+  mv $dist_client/.htaccess $backup_client/
+fi
+
+# install dependencie in ci mode
+npm ci --cache ~/.npm --prefer-online --no-audit
+# build the app will erase/overwrite the dist folder
+npm run build
+
+# add the .shtml of 404 as this is used by host provider for now
+  if [ -f $dist_client/404.html ]; then
+  cp $dist_client/404.html $dist_client/404.shtml
+fi
+
+# restore .htaccess for NodeJs application
+if [ -f $backup_client/.htaccess ]; then
+  mv $backup_client/.htaccess $dist_client/
+fi

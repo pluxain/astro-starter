@@ -5,6 +5,8 @@ import { defineConfig, envField } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
+  // Change this back to ./dist, or remove when there is backen code
+  outDir: "./dist/client",
   env: {
     schema: {
       LOG_LEVEL: envField.enum({
