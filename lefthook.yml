@@ -1,50 +1,10 @@
-commit-msg:
-  jobs:
-    - name: commit message validation
-      tags:
-        - generic
-        - git
-      run: npx --no-install commitlint --edit
-
-pre-push:
-  jobs:
-    - name: type check
-      tags:
-        - frontend
-        - typecheck
-      run: npx tsc -p tsconfig.json --noEmit --pretty
-    - name: build
-      tags:
-        - frontend
-        - build
-      run: npm run build
-
-pre-commit:
-  parallel: true
-  jobs:
-    - name: branch name validation
-      tags:
-        - generic
-        - git
-      skip:
-        - rebase
-      run: npx validate-branch-name
-    - name: lint and format
-      tags:
-        - frontend
-        - lint
-        - format
-      run: npx @biomejs/biome check {staged_files} --write
-      glob: "*.{astro,ts,md,mjs,html,json}"
-      stage_fixed: true
+remotes:
+  - git_url: https://github.com/pluxain/lefthook-config
+    configs:
+      - lefthook.astro.yml
 
 post-merge:
   scripts:
-    deploy-frontend:
-      tags:
-        - frontend
-        - ci/cd
-        - build
+    deploy-astro:
       only:
         - ref: main
-      runner: bash
