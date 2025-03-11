@@ -1,7 +1,7 @@
 {
   "name": "starter",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.3.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -9,8 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint src",
-    "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide",
-    "prepare": "husky"
+    "postinstall": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
